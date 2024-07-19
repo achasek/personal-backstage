@@ -28,8 +28,19 @@ backend:
   # This is for local development only, it is not recommended to use this in production
   # The production database configuration is stored in app-config.production.yaml
   database:
-    client: better-sqlite3
-    connection: ':memory:'
+    # client: better-sqlite3
+    # connection: ':memory:'
+    # config options: https://node-postgres.com/apis/client
+    client: pg
+    connection:
+      # host: ${POSTGRES_HOST}
+      host: 127.0.0.1.
+      # port: ${POSTGRES_PORT}
+      port: 5432 || 5433
+      # user: ${POSTGRES_USER}
+      user: chaseallman-knieper
+      # password: ${POSTGRES_PASSWORD}
+      password: 579000
   # workingDirectory: /tmp # Use this to configure a working directory for the scaffolder, defaults to the OS temp-dir
 
 integrations:
@@ -63,9 +74,16 @@ techdocs:
     type: 'local' # Alternatives - 'googleGcs' or 'awsS3'. Read documentation for using alternatives.
 
 auth:
-  # see https://backstage.io/docs/auth/ to learn about auth providers
+  environment: development
   providers:
-    # See https://backstage.io/docs/auth/guest/provider
+    # github:
+    #   development:
+    #   # hide in env variables later lol
+    #     clientId: Ov23liCxtNK0SEbvGRjX
+    #     clientSecret: e42df01daeaa122d8ae310c5728875985c1fd0d1
+  # see https://backstage.io/docs/auth/ to learn about auth providers
+  # providers:
+  #   # See https://backstage.io/docs/auth/guest/provider
     guest: {}
 
 scaffolder:
