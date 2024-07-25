@@ -73,18 +73,31 @@ techdocs:
   publisher:
     type: 'local' # Alternatives - 'googleGcs' or 'awsS3'. Read documentation for using alternatives.
 
+# auth:
+#   environment: development
+# #   providers:
+# #     # github:
+# #     #   development:
+# #     #   # hide in env variables later lol
+# #     #     clientId: Ov23liCxtNK0SEbvGRjX
+# #     #     clientSecret: e42df01daeaa122d8ae310c5728875985c1fd0d1
+# #   # see https://backstage.io/docs/auth/ to learn about auth providers
+#   providers:
+# #   #   # See https://backstage.io/docs/auth/guest/provider
+#     guest: {}
+
 auth:
   environment: development
   providers:
-    # github:
-    #   development:
-    #   # hide in env variables later lol
-    #     clientId: Ov23liCxtNK0SEbvGRjX
-    #     clientSecret: e42df01daeaa122d8ae310c5728875985c1fd0d1
-  # see https://backstage.io/docs/auth/ to learn about auth providers
-  # providers:
-  #   # See https://backstage.io/docs/auth/guest/provider
-    guest: {}
+    github:
+      development:
+        clientId: ${AUTH_GITHUB_CLIENT_ID}
+        clientSecret: S{AUTH_GITHUB_CLIENT_SECRET}
+        signIn:
+          resolvers:
+            - resolver: usernameMatchingUserEntityName
+            - resolver: emailMatchingUserEntityProfileEmail
+            - resolver: emailLocalPartMatchingUserEntityName
 
 scaffolder:
   # see https://backstage.io/docs/features/software-templates/configuration for software template options
