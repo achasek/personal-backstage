@@ -40,11 +40,7 @@ import { githubAuthApiRef } from '@backstage/core-plugin-api';
 
 const app = createApp({
   apis,
-  // GUEST PROVIDER
-  // components: {
-  //   SignInPage: props => <SignInPage {...props} auto providers={['guest']} />,
-  // },
-  // GITHUB APP PROVIDER
+  // GITHUB APP PROVIDER & GUEST
   components: {
     SignInPage: props => (
       <SignInPage
