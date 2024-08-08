@@ -20,7 +20,7 @@ jobs:
       - name: Install Dependencies
         run: yarn install
 
-      - name: Lint
+      - name: Run Lint
         run: yarn lint
 
       # - name: Test
@@ -31,7 +31,6 @@ jobs:
       #   run: |
       #     yarn dev
       #     yarn test:e2e
-# TEST
 
 
       
