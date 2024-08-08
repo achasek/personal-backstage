@@ -3,7 +3,6 @@ name: CI
 on: 
   push:
     branches: [main]
-  pull_requests: 
     paths-ignore:
       - 'docs/**'
       - '**.md'
@@ -32,6 +31,8 @@ jobs:
       #   run: |
       #     yarn dev
       #     yarn test:e2e
+# TEST
+
 
       
         
