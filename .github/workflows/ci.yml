@@ -24,14 +24,14 @@ jobs:
       - name: Run Lint
         run: yarn lint:all
 
-      # - name: Test
-      #   run: yarn test:all --silent
+      - name: Test
+        run: yarn test:all --silent
 
-      # - name: Playwright
-      #   timeout-minutes: 20
-      #   run: |
-      #     yarn dev
-      #     yarn test:e2e
+      - name: Playwright
+        timeout-minutes: 20
+        run: |
+          yarn dev
+          yarn test:e2e
 
 
       
