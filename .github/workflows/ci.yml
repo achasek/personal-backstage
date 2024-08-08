@@ -3,6 +3,7 @@ name: CI
 on: 
   push:
     branches: [main]
+  pull_request:
     paths-ignore:
       - 'docs/**'
       - '**.md'
@@ -21,7 +22,7 @@ jobs:
         run: yarn install
 
       - name: Run Lint
-        run: yarn lint
+        run: yarn lint:all
 
       # - name: Test
       #   run: yarn test:all --silent
