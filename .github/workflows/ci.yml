@@ -10,7 +10,7 @@ on:
 
 jobs: 
   build:
-    name: Build Environment
+    name: Build Environment and Run Test Cases
     runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v4
@@ -23,15 +23,24 @@ jobs:
 
       - name: Run Lint
         run: yarn lint:all
+        
+      - name: Test
+        run: yarn test:all --silent
 
-      # - name: Test
-      #   run: yarn test:all --silent
+  # e2eTest:
+  #   name: E2E Tests
+  #   runs-on: ubuntu-20.04
+  #   steps:
+  #     - uses: actions/checkout@v4
+  #     - uses: actions/setup-node@v4
+  #       with: 
+  #         node-version: '20'
 
-      # - name: Playwright
-      #   timeout-minutes: 20
-      #   run: |
-      #     yarn dev
-      #     yarn test:e2e
+  #     - name: Playwright
+  #       timeout-minutes: 20
+  #       run: |
+  #         yarn dev
+  #         yarn test:e2e
 
 
       
